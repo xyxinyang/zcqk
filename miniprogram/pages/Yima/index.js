@@ -16,6 +16,11 @@ Page({
       {start:'2022-9-23',end:'2022-9-29'}
     ],
   },
+  reflesh(){
+    wx.redirectTo({
+      url: '../Yima/index',
+    })
+  },
   dateInit: function (setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let dateArr = [];                       //需要遍历的日历数组数据
@@ -102,11 +107,28 @@ Page({
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
     this.dateInit();
+    let arr = [];
+    //console.log(JSON.stringify(this.data.dateArr[0]) == "{}")
+    // for(let i=0;i<this.data.dateArr.length;i++)
+    // {
+    //   if(JSON.stringify(arr[i]) == "{}") {
+    //     arr[i].isToday="2022100"
+    //     arr[i].dateNum=0
+    //     arr[i].weight=5
+    //   }
+    // }
+    for(let i=0;i<this.data.dateArr.length;i++){
+      //if(this.data.dateArr[i].dateNum<10)  arr.push({dateNum:this.data.dateArr[i].dateNum})
+      arr.push({
+        dateNum:0
+      })
+    }
     this.setData({
       year: year,
       month: month,
       isToday: '' + year + month + now.getDate()
     })
+    console.log(this.data.dateArr)
   },
 
   /**

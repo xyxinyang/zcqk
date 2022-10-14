@@ -1,7 +1,6 @@
 <!-- 日历年月 -->
 <view class='calendar_title flex_nowrap'>
   <mp-icon class="icon" icon="back" color="black" size="{{24}}"  bindtap="lastMonth"></mp-icon>
-  <!-- <mp-icon class="right-box" icon="arrow" color="black" size="{{30}}" bindtap="nextMonth"></mp-icon> -->
   <view>{{year}}年{{month}}月</view>
   <mp-icon class="icon" icon="arrow" color="black" size="{{24}}" bindtap="nextMonth"></mp-icon>
 </view>
@@ -9,19 +8,19 @@
 <!-- 日历主体 -->
 <view class='calendar'>
   <view class='header'>
-    <view wx:for='{{date}}' wx:key='' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}
+    <view wx:for='{{date}}' wx:key='index' >{{item}}
       <view></view>
     </view>
   </view>
 
+
   <view class='date-box'>
-    <block wx:for='{{dateArr}}' wx:key=''>
-      <view class='{{isToday == item.isToday ? "nowDay" : ""}}'>
-        <view class='date-head' bindtap='lookHuoDong' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}'>
+    <view wx:for='{{dateArr}}' wx:key='index'>
+        <view class='date-head' bindtap='lookHuoDong'>
           <view>{{item.dateNum}}</view>
         </view>
-      </view>
-    </block>
+    </view>
   </view>
 
 </view>
+<button bindtap="reflesh">刷新</button>

@@ -10,7 +10,7 @@
       >
       <image 
             class="img"
-            src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk2.JPG"
+            src="{{item.url}}"
             bindtap="previewImage"
             data-sources="{{mediaList}}"
             data-index="{{index}}"
@@ -21,3 +21,11 @@
       </view>
     </view>
   </view>
+  <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;z-index:1000;">
+  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toadd" 
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src=""/>上传
+    </button>
+  </movable-view>
+</movable-area>

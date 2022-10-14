@@ -1,9 +1,9 @@
 <view style="width:100%; background: none;">
 
   <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
-      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.JPG" mode='aspectFit' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk2.JPG" mode='aspectFit' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk3.JPG" mode='aspectFit' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
   </swiper>
 
 <view class="form-group_label">💰 积分榜</view>
@@ -49,7 +49,7 @@
       <view bindtap="toMessage">留言</view>
     </view>
     <view class="tui-col-3">
-      <mp-icon icon="camera" color="black" bindtap="tophoto"></mp-icon>
+      <mp-icon icon="album" color="black" bindtap="tophoto"></mp-icon>
       <view bindtap="tophoto">云相册</view>
     </view>
     <view class="tui-col-3">
@@ -73,8 +73,8 @@
       <view>about</view>
     </view>
     <view class="tui-col-3">
-      <icon class="iconfont icon-gengduotianchong"></icon>
-      <view>more</view>
+      <mp-icon icon="info" color="black" bindtap=""></mp-icon>
+      <view>关于</view>
     </view>
   </view>
 </view>

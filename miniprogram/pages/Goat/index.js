@@ -141,6 +141,7 @@ Page({
             if(clean>0) clean-=10;
           }
         }
+        //console.log(cha)
         if(cha>0&&ji>0&&clean>0) {level++;console.log(level)}
         wx.cloud.callFunction({
           name:"update",
