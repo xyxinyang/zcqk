@@ -1,0 +1,28 @@
+<!--pages/Message/index.wxml-->
+<view wx:for="{{datalist}}" wx:key="index">
+  <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells">
+  <mp-cells  title="{{item.what}}" >
+    <mp-cell>
+        <view>时间：</view>
+        <view slot="footer">{{item.date}}</view>
+    </mp-cell>
+    <mp-cell>
+        <view>内容：</view>
+        <view slot="footer">{{item.content}}</view>
+        <view slot="footer">来自：{{item.owner}}</view>
+    </mp-cell>
+    <!-- <mp-cell>
+        <view>来自：</view>
+        <view slot="footer">{{item.owner}}</view>
+    </mp-cell> -->
+  </mp-cells>
+</mp-slideview>
+</view>
+<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toadd" 
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="Images/Plus.png"/>添加
+    </button>
+  </movable-view>
+</movable-area>

@@ -1,0 +1,11 @@
+<!--pages/MessageAdd/index.wxml-->
+<view style="margin-top:20%;margin:10%">
+  <form bindsubmit="submit">
+    <view class="section">
+  <textarea placeholder="输入内容" name="textarea" auto-focus />
+</view>
+    <view>
+      <button class="login_btn" form-type="submit">发布</button>
+    </view>
+  </form>
+</view>

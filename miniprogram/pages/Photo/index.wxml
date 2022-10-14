@@ -1,0 +1,23 @@
+<!-- 图片和视频 -->
+<navigationBar title="我们的相册" navigationtype="navigateTo"  bgc="#fff" color="#000" style="margin:5%" ></navigationBar>
+  <view class="img_box">
+    <view class="many_img">
+      <!-- 遍历 -->
+      <view
+        wx:for="{{mediaList}}"
+        wx:key="index"
+        class="img_item many"
+      >
+      <image 
+            class="img"
+            src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk2.JPG"
+            bindtap="previewImage"
+            data-sources="{{mediaList}}"
+            data-index="{{index}}"
+            mode="aspectFill"
+            show-menu-by-longpress="true"
+          ></image>
+     
+      </view>
+    </view>
+  </view>

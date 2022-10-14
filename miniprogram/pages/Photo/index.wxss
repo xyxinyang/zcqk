@@ -1,0 +1,20 @@
+.img_box {
+  margin-bottom: 12rpx;
+  background-color: #fff;
+  height: 90vh;
+}
+
+.many_img {
+  display: flex;
+  justify-self: start;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+.many {
+  width: 45%;
+  margin-left: 3%;
+  margin-bottom: 16rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}

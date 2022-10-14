@@ -1,0 +1,34 @@
+<view style="margin-top:40%">
+  <form bindsubmit="submit">
+    <view class="form_item input-info" style="margin-bottom: 20px;">
+      <input name="detail" type="text" placeholder="账单描述" ></input>
+    </view>
+    <view class="form_item input-info" style="margin-bottom: 20px;">
+      <input class="weui-input" name="count" type="number" placeholder="金额" />
+    </view>
+
+    <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+          <view class="weui-cell__hd">
+            <radio value="{{item.value}}" checked="true"/>
+          </view>
+          <view class="weui-cell__bd">{{item.name}}</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="section" style="margin-top: 20px;margin-bottom: 20px;">
+  <picker name="date" mode="date" value="{{date}}" start="2000-05" end="2100-09" fields="day" bindchange="bindDateChange">
+    <view class="picker">
+      <mp-icon icon="time" color="black" size="{{30}}"></mp-icon>
+      当前日期: {{date}}
+    </view>
+  </picker>
+</view>
+    <view>
+      <button class="login_btn" form-type="submit">记录</button>
+    </view>
+  </form>
+</view>

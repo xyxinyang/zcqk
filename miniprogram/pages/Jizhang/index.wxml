@@ -1,0 +1,37 @@
+<!--pages/Jizhang/index.wxml-->
+<view>{{user}}的账单</view>
+
+<view class="section">
+  <picker mode="date" value="{{date}}" start="2000-05" end="2100-09" fields="month" bindchange="bindDateChange">
+    <view class="picker">
+      <mp-icon icon="time" color="black" size="{{30}}"></mp-icon>
+      当前日期: {{date}}
+    </view>
+  </picker>
+</view>
+<view>收入：{{ru}}</view>
+<view>支出：{{chu}}</view>
+<view>净收入：{{jing}}</view>
+
+<view style="margin-bottom:15%">
+<view wx:for="{{datalist}}" wx:key="index">
+  <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells">
+  <mp-cells  title="{{item.date}}" >
+    <mp-cell>
+        <view>{{item.detail}}</view>
+        <view slot="footer">{{item.ru?'+':'-'}}{{item.count}}</view>
+    </mp-cell>
+  </mp-cells>
+</mp-slideview>
+</view>
+</view>
+
+<!-- <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toadd" 
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="Images/Plus.png"/>记账
+    </button>
+  </movable-view>
+</movable-area> -->
+<mp-tabbar  ext-class="foot-tabbar" style="position:fixed;bottom:0;width:100%;left:0;right:0;z-index:1000" list="{{list}}" bindchange="tabChange" current="1"></mp-tabbar>

@@ -1,0 +1,82 @@
+<view style="width:100%; background: none;">
+
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
+      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.JPG" mode='aspectFit' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk2.JPG" mode='aspectFit' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk3.JPG" mode='aspectFit' class="swiper-image" /></swiper-item>
+  </swiper>
+
+<view class="form-group_label">💰 积分榜</view>
+    <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+        <view class="slide">
+        <view class="title">{{userA}}的积分：{{creditA}}</view>
+        </view>
+    </view>
+    <view class="form-cell">
+        <view class="slide">
+        <view class="title">{{userB}}的积分：{{creditB}}</view>
+        </view>
+    </view>
+</view>
+
+<view class="form-group_label">🐻 欢迎回来</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <!-- <view class="form-cell">
+      <view class="slide">
+        <view bindtap="topasswd" class="title" >共享密码本</view>
+      </view>
+    </view> -->
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">欢迎！zc和qk！相恋{{day}}天{{hour}}小时{{minute}}分钟{{second}}秒</view>
+      </view>
+    </view>
+    <!-- <view class="form-cell">
+      <view class="slide">
+        <view class="title">今天想做什么呢？</view>
+      </view>
+    </view> -->
+  </view>
+  <view class="section">
+  <view class="tui-table-view">
+    <view class="tui-col-3">
+      <mp-icon icon="lock" color="black" bindtap="topasswd"></mp-icon>
+      <view bindtap="topasswd">密码本</view>
+    </view>
+    <view class="tui-col-3">
+      <mp-icon icon="comment" color="black" bindtap="toMessage"></mp-icon>
+      <view bindtap="toMessage">留言</view>
+    </view>
+    <view class="tui-col-3">
+      <mp-icon icon="camera" color="black" bindtap="tophoto"></mp-icon>
+      <view bindtap="tophoto">云相册</view>
+    </view>
+    <view class="tui-col-3">
+      <mp-icon icon="shop" color="black" bindtap="tojizhang"></mp-icon>
+      <view bindtap="tojizhang">记账本</view>
+    </view>
+    <view class="tui-col-3">
+      <mp-icon icon="pencil" color="black" bindtap=""></mp-icon>
+      <view>云备忘录</view>
+    </view>
+    <view class="tui-col-3">
+      <mp-icon icon="bellring-on" color="black" bindtap="toyima"></mp-icon>
+      <view bindtap="toyima">姨妈助手</view>
+    </view>
+    <view class="tui-col-3">
+      <mp-icon icon="home" color="black" bindtap="togoat"></mp-icon>
+      <view bindtap="togoat">云养🐏</view>
+    </view>
+    <view class="tui-col-3">
+      <icon type="info" size='30' color='#797979'></icon>
+      <view>about</view>
+    </view>
+    <view class="tui-col-3">
+      <icon class="iconfont icon-gengduotianchong"></icon>
+      <view>more</view>
+    </view>
+  </view>
+</view>
+
+</view>

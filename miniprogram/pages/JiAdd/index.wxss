@@ -1,0 +1,19 @@
+
+
+.form_item {
+  margin: 0 50rpx;
+  height: 36px;
+  border: 1px solid rgb(50, 100, 192);
+  border-radius: 5px;
+}
+
+.input {
+  float: left;
+  height: 36px;
+}
+
+.login_btn {
+  background: rgb(50, 100, 192);
+  color: white;
+  margin-bottom: 15px;
+}
