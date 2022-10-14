@@ -73,6 +73,11 @@ Page({
             url: '../Photo/index',
           })
     },
+    tobeiwang(){
+        wx.navigateTo({
+            url: '../BeiWang/index',
+          })
+    },
     toyima(){
         wx.navigateTo({
             url: '../Yima/index',

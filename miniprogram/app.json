@@ -17,6 +17,7 @@
     "pages/Message/index",
     "pages/MessageAdd/index",
     "pages/Photo/index",
+    "pages/BeiWang/index",
     "pages/Yima/index",
     "pages/Goat/index"
   ],

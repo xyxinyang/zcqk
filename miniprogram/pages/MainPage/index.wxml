@@ -57,8 +57,8 @@
       <view bindtap="tojizhang">记账本</view>
     </view>
     <view class="tui-col-3">
-      <mp-icon icon="pencil" color="black" bindtap=""></mp-icon>
-      <view>云备忘录</view>
+      <mp-icon icon="pencil" color="black" bindtap="tobeiwang"></mp-icon>
+      <view bindtap="tobeiwang">云备忘录</view>
     </view>
     <view class="tui-col-3">
       <mp-icon icon="bellring-on" color="black" bindtap="toyima"></mp-icon>
