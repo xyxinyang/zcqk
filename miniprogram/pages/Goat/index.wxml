@@ -1,2 +1,15 @@
-<!--pages/Goat/index.wxml-->
-<text>pages/Goat/index.wxml</text>
+<view >
+    <view class="flex-row" style="display: flex;flex-direction: row;justify-content:space-between;">
+        <view class="flex-view-item">1</view>
+        <view class="flex-view-item">2</view>
+        <view class="flex-view-item">3</view>
+    </view>
+    <view style="display: flex;justify-content:center;margin-top:20%;">
+    <image src="cloud://test-1ed495.7465-test-1ed495-1259259172/goat.JPG" bindtap="miemie"></image>
+   </view>
+    <!-- <view class="flex-column" style="display:flex;flex-direction: column;" >
+        <view class="flex-view-item">c1</view>
+        <view class="flex-view-item">c2</view>
+        <view class="flex-view-item">c3</view>
+    </view> -->
+</view>
