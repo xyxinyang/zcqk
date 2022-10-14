@@ -8,7 +8,8 @@ function formatTime(date,choice) {
   var second = date.getSeconds()
   if(choice==0)  return [year, month, day].map(formatNumber).join('/')  // + ' ' + [hour, minute, second].map(formatNumber).join(':')
   else if(choice==1) return [year, month, day].map(formatNumber).join('/')   + ' ' + [hour, minute].map(formatNumber).join(':')
-  else return [year, month, day].map(formatNumber).join('-')   + ' ' + [hour, minute].map(formatNumber).join(':')
+  else if(choice==2) return [year, month, day].map(formatNumber).join('-')   + ' ' + [hour, minute].map(formatNumber).join(':')
+  else if(choice==3) return  [year, month, day].map(formatNumber).join('-')
 }
  
 function formatNumber(n) {
