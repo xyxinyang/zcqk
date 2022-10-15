@@ -16,11 +16,15 @@ Page({
     year:'',
     month:'',
     day:'',
+    daylist:[0,31,28,31,30,31,30,31,31,30,31,30,31],
     ru:0,
     chu:0,
     jing:0,
-    datalist:[],
-    list:[{
+    delete1:0,    //要删除的下标1
+    datalist:[],   //所有数据
+    results:[],    //最终要显示的数据
+    nowdatalist:[1],  //本月的数据
+    list:[{    //底部导航
       "pagePath": "/pages/JiAdd/index",
       "text": "记账",
       "selectedIconPath": "/images/humi-project.png"    
@@ -29,20 +33,53 @@ Page({
       "text": "明细",
     },{
       "pagePath":"/pages/TuBiao/index",
-      "text":"图表"
+      "text":"账单"
     }]
   },
   tabChange: function(e) {
     console.log(e)
     if(e.detail.index==0) this.toadd()
-    else wx.navigateTo({
-      url: e.detail.item.pagePath
-    })
+    else if(e.detail.index==2) this.tozhang()
   },
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    let chu = 0
+    let ru = 0
+    let jing = 0
+    let that = this
+    let date = e.detail.value
+    let month = Number(date.split("-")[1])
+    let datalist = this.data.datalist
+    let nowdatalist = []
+    let results = new Array(31)  //创建二维数组
+    for(let i=0;i<results.length;i++) results[i]=[]
+    for(let i=0;i<datalist.length;i++){
+      if(datalist[i].date.includes(date)){
+        //console.log(datalist[i].date)
+        let day = Number(datalist[i].date.split("-")[2])
+        //console.log(day)
+        results[day].push(datalist[i])
+        nowdatalist.push(datalist[i]);
+        if(datalist[i].ru) ru+=Number(datalist[i].count)
+        else chu+=Number(datalist[i].count)
+        //console.log(datalist[i]);
+      }
+    }
+    //console.log(month)
+    jing = ru - chu
     this.setData({
-      date: e.detail.value
+      ru,chu,jing,
+      nowdatalist:nowdatalist,
+      date: e.detail.value,
+      results:results,
+      month,
+      day:that.data.daylist[month]
+    })
+    //console.log(that.data.day)
+  },
+  tozhang(){
+    wx.navigateTo({
+      url: '../TuBiao/index?datalist='+JSON.stringify(this.data.datalist),
     })
   },
   toadd(){
@@ -50,15 +87,73 @@ Page({
       url: '../JiAdd/index?owner='+this.data.user+'&date='+this.data.serverdate,
     })
   },
-
+  getfirst(element){
+    //console.log(1,element)
+    this.setData({
+      delete1:element.currentTarget.dataset.index
+    })
+  },
+  slideButtonTap(element){
+    let that=this
+    //console.log(2,element)
+    let {index}=element.detail
+    let id1=this.data.delete1
+    let id2=element.currentTarget.dataset.index
+    //console.log(id1,id2)
+    let want = this.data.results[id1][id2]
+    let results = this.data.results
+    console.log(want)
+    if(index==0){
+      wx.showModal({
+        title:'确定删除？',
+        content:'',
+        success:function(res){
+          if(res.confirm){
+            let id = want._id;
+            console.log(id)
+            db.doc(id).remove({
+              success:function(res){
+                results[id1].splice(id2,1)
+                that.setData({results})
+                // wx.redirectTo({
+                //   url: '../Jizhang/index',
+                // })
+              }
+            })
+          }
+        }
+      })
+    }
+    // if(index==0){
+    //   wx.showModal({
+    //     title: '确定删除？',
+    //     content:'',
+    //     success: function (res) {
+    //       if (res.confirm) {
+    //         let id=that.data.datalist[passwdid]._id
+    //         let owner=that.data.datalist[passwdid].owner
+    //         //console.log(that.data.datalist[passwdid]._id)
+    //         console.log('点击确定')//点击确定事件
+    //         db.doc(id).remove({
+    //           success:function(res){
+    //             wx.redirectTo({
+    //               url: '../Password/index?user='+owner,
+    //             })
+    //           }
+    //         })
+    //       } else {
+    //         console.log('点击取消')//点击取消事件
+    //       }
+    //     }
+    //   })      
+    // }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.setData({
       slideButtons: [{
-        text: '修改',
-      },{
         type: 'warn',
         text: '删除',
         extClass: 'test',
@@ -103,23 +198,44 @@ Page({
       success:res=>{
         let data=res.result.data
         let userdata=[]
-        let ru=0,chu=0
+        let chu = 0
+        let ru = 0
+        let jing = 0
         //console.log(that.data.user)
         for(let i=0;i<data.length;i++)
         {
           if(data[i].owner==that.data.user) {
             userdata.push(data[i])
-            if(data[i].ru) ru+=Number(data[i].count)
-            else chu+=Number(data[i].count)
           }
         }
-        let jing=ru-chu;
         that.setData({
-          ru:ru,
-          chu:chu,
-          jing:jing,
           datalist:userdata
         })
+        let date = that.data.date
+        let datalist = that.data.datalist
+        let nowdatalist = []
+        let results = new Array(31)  //创建二维数组
+        for(let i=0;i<results.length;i++) results[i]=[]
+        for(let i=0;i<datalist.length;i++){
+          if(datalist[i].date.includes(date)){
+            let day = Number(datalist[i].date.split("-")[2])
+            //console.log(day)
+            results[day].push(datalist[i])
+            nowdatalist.push(datalist[i]);
+            if(datalist[i].ru) ru+=Number(datalist[i].count)
+            else chu+=Number(datalist[i].count)
+            //console.log(datalist[i]);
+          }
+        }
+        //console.log(results)
+        jing = ru -chu
+        that.setData({
+          ru,chu,jing,
+          nowdatalist:nowdatalist,
+          results:results,
+          day:that.data.daylist[that.data.month]
+        })
+        //console.log(that.data.datalist)
         //console.log(res.result.data)
       }
     })

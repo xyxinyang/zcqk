@@ -18,11 +18,10 @@
   </mp-cells>
 </mp-slideview>
 </view>
-<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;z-index:100;">
   <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
-    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toadd" 
-    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="Images/Plus.png"/>添加
-    </button>
+      <view style="border:1px solid red;">
+        <image bindtap="toadd" style="width:30px;height:30px" src="../../images/humi-project.png"></image>
+      </view>
   </movable-view>
 </movable-area>

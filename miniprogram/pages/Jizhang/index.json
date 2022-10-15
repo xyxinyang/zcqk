@@ -4,6 +4,7 @@
     "mp-icon": "weui-miniprogram/icon/icon",
     "mp-cells": "weui-miniprogram/cells/cells",
     "mp-cell": "weui-miniprogram/cell/cell",
-    "mp-tabbar": "weui-miniprogram/tabbar/tabbar"
+    "mp-tabbar": "weui-miniprogram/tabbar/tabbar",
+    "mp-form": "weui-miniprogram/form/form"
   }
 }

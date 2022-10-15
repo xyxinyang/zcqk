@@ -1,6 +1,6 @@
 <view style="width:100%; background: none;">
 
-  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
+  <swiper circular="true" indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
       <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
       <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
       <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
@@ -70,7 +70,7 @@
     </view>
     <view class="tui-col-3">
       <icon type="info" size='30' color='#797979'></icon>
-      <view>about</view>
+      <view>？？？</view>
     </view>
     <view class="tui-col-3">
       <mp-icon icon="like" color="black" bindtap="toabout"></mp-icon>

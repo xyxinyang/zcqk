@@ -1,7 +1,7 @@
 <!--pages/Jizhang/index.wxml-->
-<view>{{user}}的账单</view>
+<view style="text-align:center;margin:5px;font-size:25px;">{{user}}的账单</view>
 
-<view class="section">
+<view class="section" style="padding-left:18px">
   <picker mode="date" value="{{date}}" start="2000-05" end="2100-09" fields="month" bindchange="bindDateChange">
     <view class="picker">
       <mp-icon icon="time" color="black" size="{{30}}"></mp-icon>
@@ -9,29 +9,48 @@
     </view>
   </picker>
 </view>
-<view>收入：{{ru}}</view>
-<view>支出：{{chu}}</view>
-<view>净收入：{{jing}}</view>
-
-<view style="margin-bottom:15%">
-<view wx:for="{{datalist}}" wx:key="index">
-  <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells">
-  <mp-cells  title="{{item.date}}" >
-    <mp-cell>
-        <view>{{item.detail}}</view>
-        <view slot="footer">{{item.ru?'+':'-'}}{{item.count}}</view>
-    </mp-cell>
-  </mp-cells>
-</mp-slideview>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title" style="width:30%">收入</view>
+      <view class="content" style="font-size:15px;word-break: break-all;width:70%;text-align:right;color:grey;">{{ru}}</view>
+    </view>
+    <view class="slide">
+      <view class="title" style="width:30%">支出</view>
+      <view class="content" style="font-size:15px;word-break: break-all;width:70%;text-align:right;color:grey;">{{chu}}</view>
+    </view>
+    <view class="slide">
+      <view class="title" style="width:30%">净收入</view>
+      <view class="content" style="font-size:15px;word-break: break-all;width:70%;text-align:right;color:grey;">{{jing}}</view>
+    </view>
+  </view>
 </view>
-</view>
 
-<!-- <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
-  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
-    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toadd" 
-    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="Images/Plus.png"/>记账
-    </button>
-  </movable-view>
-</movable-area> -->
-<mp-tabbar  ext-class="foot-tabbar" style="position:fixed;bottom:0;width:100%;left:0;right:0;z-index:1000" list="{{list}}" bindchange="tabChange" current="1"></mp-tabbar>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);margin-bottom:30%;">
+  <view wx:for="{{results}}" wx:key="index" bindtouchstart="getfirst" data-index="{{index}}">
+    <view wx:if="{{item.length!=0}}" style="margin-bottom:20px">
+      <view style="border-bottom:1px solid grey;padding-left:10px">{{month}}月{{index}}日</view>
+    <mp-slideview  wx:for="{{item}}" wx:key="index" buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap" ext-class="my-cells">
+      <mp-cells>
+        <mp-cell>
+          <view class="title" style="width:200px;font-size:12px">{{item.detail}}</view>
+          <view  class="content" style="font-size:12px;word-break: break-all;text-align:right;color:grey;" slot="footer">{{item.ru?'+':'-'}}{{item.count}}</view>
+        </mp-cell>
+      </mp-cells>
+    </mp-slideview>
+    </view>
+  </view>
+</view>
+<view wx:if="{{nowdatalist.length==0||length==0}}" style="text-align:center;font-size:30px">
+  本月无账单
+</view>
+<!-- <view wx:for="{{results}}" wx:key="index">
+  <view wx:if="{{item.length!=0}}">
+    <view wx:for="{{item}}" wx:key="index">
+      {{item.date}}:{{item.count}}
+    </view>
+  </view>
+</view> -->
+
+<mp-tabbar ext-class="foot-tabbar" style="position:fixed;bottom:0;width:100%;left:0;right:0;z-index:1000"
+  list="{{list}}" bindchange="tabChange" current="1"></mp-tabbar>

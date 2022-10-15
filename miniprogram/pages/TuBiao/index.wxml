@@ -1,2 +1,43 @@
 <!--pages/TuBiao/index.wxml-->
-<text>暂未开发，敬请期待</text>
+<!-- <text>暂未开发，敬请期待</text> -->
+<view class="section" style="padding-left:18px;magrin-top:20px">
+  <picker mode="date" value="{{year}}" start="2000" end="2100" fields="year" bindchange="bindDateChange">
+    <view class="picker">
+      <mp-icon icon="time" color="black" size="{{30}}"></mp-icon>
+      当前日期: {{year}}
+    </view>
+  </picker>
+</view>
+<!-- <view wx:for="{{isshow}}" wx:key="index" data-index="{{index}}">
+  <view wx:if="{{item}}">
+   月份{{index}} 收入{{ru[index]}} 支出{{chu[index]}} 净收入{{jing[index]}}
+  </view>
+</view> -->
+<view style="text-align:center;font-size:25px">
+  年净收入:{{alljing}}
+</view>
+<view class="slide" style="font-size:20px;padding-left:50px;padding-right:50px">
+  <view> 年支出:{{allchu}} </view>
+  <view> 年收入:{{allru}} </view>
+</view>
+
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <mp-cell>
+    <view class="slide">
+      <view class="title" style="">月份</view>
+      <view class="title" style="">收入</view>
+      <view class="title" style="">支出</view>
+      <view class="title" style="">净收入</view>
+    </view>
+  </mp-cell>
+  <view wx:for="{{isshow}}" wx:key="index" data-index='{{index}}'>
+    <mp-cell wx:if="{{item}}">
+      <view class="slide">
+        <view class="title" style="width:10%">{{index}}月</view>
+        <view class="content" style="word-break: break-all;color:grey;">{{ru[index]}}</view>
+        <view class="content" style="word-break: break-all;color:grey;">{{chu[index]}}</view>
+        <view class="content" style="word-break: break-all;color:grey;">{{jing[index]}}</view>
+      </view>
+    </mp-cell>
+  </view>
+</view>
