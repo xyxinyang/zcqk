@@ -1,0 +1,64 @@
+<view class="form-group_label">🐏zc的介绍</view>
+<view style="text-align:right;margin-right:10%" bindtap="toadd1">添加</view>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title" style="width:30%">姓名</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{zcinfos.name}}</view>
+    </view>
+    <view class="slide">
+      <view class="title" style="width:30%">身高</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{zcinfos.height}}cm
+      </view>
+    </view>
+    <view class="slide">
+      <view class="title" style="width:30%">体重</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{zcinfos.weight}}斤
+      </view>
+    </view>
+    <mp-slideview wx:for="{{zcothers}}" wx:key="index" buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap1"  ext-class="my-cells">
+    <mp-cell>
+      <view class="title" style="width:90px"  slot="icon">{{item.name}}</view>
+      <view class="content" style="word-break: break-all;text-align:right;color:grey;" slot="footer">{{item.detail}}</view>
+    </mp-cell>
+  </mp-slideview>
+  </view>
+</view>
+
+<view class="form-group_label">🐏qk的介绍</view>
+<view style="text-align:right;margin-right:10%" bindtap="toadd2">添加</view>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title" style="width:30%">姓名</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{qkinfos.name}}</view>
+    </view>
+    <view class="slide">
+      <view class="title" style="width:30%">身高</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{qkinfos.height}}cm
+      </view>
+    </view>
+    <view class="slide">
+      <view class="title" style="width:30%">体重</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{qkinfos.weight}}斤
+      </view>
+    </view>
+    <mp-slideview wx:for="{{qkothers}}" wx:key="index" buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap2"  ext-class="my-cells">
+    <mp-cell>
+      <view class="title" style="width:90px"  slot="icon">{{item.name}}</view>
+      <view class="content" style="word-break: break-all;text-align:right;color:grey;" slot="footer">{{item.detail}}</view>
+    </mp-cell>
+  </mp-slideview>
+  </view>
+</view>
+
+<view class="form-group_label">🐏我们的大事件</view>
+<view style="text-align:right;margin-right:10%" bindtap="toadd3">添加</view>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <mp-slideview wx:for="{{us}}" wx:key="index" buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap3"  ext-class="my-cells">
+    <mp-cell>
+      <view class="title" style="width:90px"  slot="icon">{{item.date}}</view>
+      <view class="content" style="word-break: break-all;text-align:right;color:grey;" slot="footer">{{item.what}}</view>
+    </mp-cell>
+  </mp-slideview>
+</view>

@@ -90,6 +90,19 @@
         {
           "name": "pages/Goat/index",
           "pathName": "pages/Goat/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/About/index",
+          "pathName": "pages/About/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/AboutAdd/index",
+          "pathName": "pages/AboutAdd/index",
+          "query": "choice=1",
           "scene": null
         }
       ]

@@ -101,7 +101,7 @@ Page({
         that.setData({
           mediaList:templist
         })
-        console.log(that.data.mediaList)
+        //console.log(that.data.mediaList)
         console.log(that.data.qknum)
       }
     })

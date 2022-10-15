@@ -1,0 +1,14 @@
+<!--pages/AboutEdit/index.wxml-->
+<view style="margin-top:40%">
+  <form bindsubmit="submit">
+    <view class="form_item input-info" style="margin-bottom: 20px;">
+      <input name="name" type="text" placeholder="标题" value="{{namevalue}}" ></input>
+    </view>
+    <view class="form_item input-info" style="margin-bottom: 20px;">
+      <input name="detail" type="text" placeholder="描述" value="{{detailvalue}}" />
+    </view>
+    <view>
+      <button class="login_btn" form-type="submit">修改</button>
+    </view>
+  </form>
+</view>

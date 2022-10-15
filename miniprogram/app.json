@@ -19,7 +19,10 @@
     "pages/Photo/index",
     "pages/BeiWang/index",
     "pages/Yima/index",
-    "pages/Goat/index"
+    "pages/Goat/index",
+    "pages/About/index",
+    "pages/AboutAdd/index",
+    "pages/AboutEdit/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

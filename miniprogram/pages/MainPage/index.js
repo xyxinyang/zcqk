@@ -88,6 +88,11 @@ Page({
             url: '../Goat/index',
           })
     },
+    toabout(){
+        wx.navigateTo({
+          url: '../About/index',
+        })
+    },
     tojizhang(){
         wx.showActionSheet({
             itemList: ['zc', 'qk'],
