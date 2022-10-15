@@ -1,134 +1,178 @@
 // pages/Yima/index.js
+const db=wx.cloud.database().collection("Yima")
+const base=wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    year: 0,
-    month: 0,
-    date: ['日', '一', '二', '三', '四', '五', '六'],
-    dateArr: [],
-    isToday: 0,
-    isTodayWeek: false,
-    todayIndex: 0,
-    yima:[
-      {start:'2022-9-23',end:'2022-9-29'}
-    ],
+    dateString: "",  //选中日期
+    state:0, //0：姨妈来，1：姨妈走，2：安全期，3：易孕期
+    today: '',
+    ailist:[],  //做爱记录
+    spot: [],
+    show: false,
+    num:0,
+    buttons: [{
+        type: 'default',
+        className: '',
+        text: '记录姨妈',
+        value: 0
+      },{
+        type: 'primary',
+        className: '',
+        text: '记录爱爱',
+        value: 1
+      }],
+      multiArray: [['0时', '1时', '2时', '3时', '4时', '5时', '6时', '7时', '8时', '9时', '10时', '11时', '12时', '13时', '14时', '15时', '16时', '17时', '18时', '19时', '20时', '21时', '22时', '23时'], ['无措施', '避孕套', '避孕药', '体外射精']],
+      multiIndex: [0, 0],
+      slideButtons:[],
   },
-  reflesh(){
-    wx.redirectTo({
-      url: '../Yima/index',
+  bindMultiPickerChange: function (e) {   //添加做爱记录
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
+    let that = this
+    let dateString = this.data.dateString
+    let state = this.data.state
+    let multiArray = this.data.multiArray
+    let multiIndex =  e.detail.value
+    this.setData({
+      multiIndex: e.detail.value
     })
-  },
-  dateInit: function (setYear, setMonth) {
-    //全部时间的月份都是按0~11基准，显示月份才+1
-    let dateArr = [];                       //需要遍历的日历数组数据
-    let arrLen = 0;                         //dateArr的数组长度
-    let now = setYear ? new Date(setYear, setMonth) : new Date();
-    let year = setYear || now.getFullYear();
-    let nextYear = 0;
-    let month = setMonth || now.getMonth();                 //没有+1方便后面计算当月总天数
-    let nextMonth = (month + 1) > 11 ? 1 : (month + 1);
-    let startWeek = new Date(year + ',' + (month + 1) + ',' + 1).getDay();                          //目标月1号对应的星期
-    let dayNums = new Date(year, nextMonth, 0).getDate();               //获取目标月有多少天
-    let obj = {};
-    let num = 0;
-    if (month + 1 > 11) {
-      nextYear = year + 1;
-      dayNums = new Date(nextYear, nextMonth, 0).getDate();
-    }
-    arrLen = startWeek + dayNums;
-    for (let i = 0; i < arrLen; i++) {
-      if (i >= startWeek) {
-        num = i - startWeek + 1;
-        obj = {
-          isToday: '' + year + (month + 1) + num,
-          dateNum: num,
-          weight: 5
+    let ailist = this.data.ailist
+    ailist.push({
+      date:multiArray[0][multiIndex[0]],
+      cuoshi:multiArray[1][multiIndex[1]]
+    })
+    //console.log(dateString)
+    if(state==-1){
+      //console.log('-1')
+      db.add({
+        data:{
+          date:dateString,
+          ai:ailist
         }
-      } else {
-        obj = {};
+      }).then(res=>{
+        that.setData({ailist})
+      })
+    }
+    else wx.cloud.callFunction({
+      name:"update",
+      data:{
+        choice:8,
+        setname:'Yima',
+        date:dateString,
+        ai:ailist
+      },
+      success:res=>{
+        console.log(res)
+        that.setData({ailist})
+        // wx.redirectTo({
+        //   url: '../Yima/index',
+        // })
       }
-      dateArr[i] = obj;
-    }
-    this.setData({
-      dateArr: dateArr
     })
-    let nowDate = new Date();
-    let nowYear = nowDate.getFullYear();
-    let nowMonth = nowDate.getMonth() + 1;
-    let nowWeek = nowDate.getDay();
-    let getYear = setYear || nowYear;
-    let getMonth = setMonth >= 0 ? (setMonth + 1) : nowMonth;
-    if (nowYear == getYear && nowMonth == getMonth) {
-      this.setData({
-        isTodayWeek: true,
-        todayIndex: nowWeek
-      })
-    } else {
-      this.setData({
-        isTodayWeek: false,
-        todayIndex: -1
-      })
+  },
+  slideButtonTap(element){   //对做爱记录进行操作
+    let that=this
+    let date = this.data.dateString
+    console.log(element)
+    let {index}=element.detail
+    let id=element.currentTarget.dataset.index
+    if(index==1){  //删除操作
+      wx.showModal({
+        title: '确定删除？',
+        content:'',
+        success: function (res) {
+          if (res.confirm) {
+            let ailist = that.data.ailist;
+            ailist.splice(id,1);
+            //console.log(us)
+            //console.log(that.data.datalist[passwdid]._id)
+            //console.log('点击确定')//点击确定事件
+            wx.cloud.callFunction({
+              name:"update",
+              data:{
+                choice:8,
+                setname:'Yima',
+                date:date,
+                ai:ailist
+              },
+              success:res=>{
+                that.setData({ailist})
+                // wx.redirectTo({
+                //   url: '../Yima/index',
+                // })
+              }
+            })
+          } else {
+            console.log('点击取消')//点击取消事件
+          }
+        }
+      }) 
     }
   },
-  /**
-   * 上月切换
-   */
-  lastMonth: function () {
-    //全部时间的月份都是按0~11基准，显示月份才+1
-    let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
-    let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
+  dateChange(e) {    //变换当前要看的天
+    //console.log(e)
+    let num = this.data.num;
+    let today = e.detail.dateString;
+    //if(num!=0) this.open()
+    num++;
     this.setData({
-      year: year,
-      month: (month + 1)
+      num,
+      dateString: e.detail.dateString,
     })
-    this.dateInit(year, month);
-  },
-  /**
-   * 下月切换
-   */
-  nextMonth: function () {
-    //全部时间的月份都是按0~11基准，显示月份才+1
-    let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
-    let month = this.data.month > 11 ? 0 : this.data.month;
-    this.setData({
-      year: year,
-      month: (month + 1)
-    })
-    this.dateInit(year, month);
+    let that=this
+    wx.cloud.callFunction({
+      name:"getList",
+      data:{
+        list:'Yima'
+      },
+      success:res=>{
+        let data=res.result.data
+        let length = res.result.data.length
+        //console.log(data)
+        //console.log(today)
+        let isai = false;
+        for(let i=0;i<length;i++){
+          if(data[i].date==today){
+            console.log(data[i]);
+            that.setData({
+              ailist:data[i].ai,
+              state:data[i].state
+            })
+            isai = true
+            break;
+          }
+        }
+        if(isai==false){
+          that.setData({
+            ailist:[],
+            state:-1
+          })
+        }
+      }
+      })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let now = new Date();
-    let year = now.getFullYear();
-    let month = now.getMonth() + 1;
-    this.dateInit();
-    let arr = [];
-    //console.log(JSON.stringify(this.data.dateArr[0]) == "{}")
-    // for(let i=0;i<this.data.dateArr.length;i++)
-    // {
-    //   if(JSON.stringify(arr[i]) == "{}") {
-    //     arr[i].isToday="2022100"
-    //     arr[i].dateNum=0
-    //     arr[i].weight=5
-    //   }
-    // }
-    for(let i=0;i<this.data.dateArr.length;i++){
-      //if(this.data.dateArr[i].dateNum<10)  arr.push({dateNum:this.data.dateArr[i].dateNum})
-      arr.push({
-        dateNum:0
-      })
-    }
     this.setData({
-      year: year,
-      month: month,
-      isToday: '' + year + month + now.getDate()
+      slideButtons: [{
+        text: '编辑',
+      },{
+        type: 'warn',
+        text: '删除',
+        extClass: 'test',
+      }],
+  });
+    let date = new Date();
+    let month = date.getMonth() + 1
+    let today = date.getFullYear() + '-' + month + '-' + date.getDate();
+    this.setData({
+      today
     })
-    console.log(this.data.dateArr)
   },
 
   /**

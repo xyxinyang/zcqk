@@ -1,26 +1,27 @@
-<!-- 日历年月 -->
-<view class='calendar_title flex_nowrap'>
-  <mp-icon class="icon" icon="back" color="black" size="{{24}}"  bindtap="lastMonth"></mp-icon>
-  <view>{{year}}年{{month}}月</view>
-  <mp-icon class="icon" icon="arrow" color="black" size="{{24}}" bindtap="nextMonth"></mp-icon>
-</view>
-
-<!-- 日历主体 -->
-<view class='calendar'>
-  <view class='header'>
-    <view wx:for='{{date}}' wx:key='index' >{{item}}
-      <view></view>
+<calendar defaultDate="{{today}}" spot="{{spot}}" bind:dateChange="dateChange" bindtap="add"></calendar>
+<view class="form-group_label">🐏zc的介绍</view>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title" style="width:30%">大姨妈来了</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">是or否</view>
     </view>
-  </view>
-
-
-  <view class='date-box'>
-    <view wx:for='{{dateArr}}' wx:key='index'>
-        <view class='date-head' bindtap='lookHuoDong'>
-          <view>{{item.dateNum}}</view>
+    <view class="slide">
+      <view class="title" style="width:30%">爱爱记录</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange"  value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          添加
         </view>
+      </picker>
+      <!-- <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">添加</view> -->
     </view>
   </view>
-
+  <mp-slideview wx:for="{{ailist}}" wx:key="index" buttons="{{slideButtons}}" data-index='{{index}}'
+    bindbuttontap="slideButtonTap" ext-class="my-cells">
+    <mp-cell>
+      <view class="title" style="width:90px" slot="icon">{{item.date}}</view>
+      <view class="content" style="word-break: break-all;text-align:right;color:grey;" slot="footer">{{item.cuoshi}}
+      </view>
+    </mp-cell>
+  </mp-slideview>
 </view>
-<button bindtap="reflesh">刷新</button>

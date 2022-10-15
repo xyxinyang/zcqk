@@ -73,7 +73,7 @@
       <view>about</view>
     </view>
     <view class="tui-col-3">
-      <mp-icon icon="info" color="black" bindtap="toabout"></mp-icon>
+      <mp-icon icon="like" color="black" bindtap="toabout"></mp-icon>
       <view bindtap="toabout">我们</view>
     </view>
   </view>

@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "mp-icon": "weui-miniprogram/icon/icon"
+    "calendar": "../../components/calendar/calendar",
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog"
   }
 }
