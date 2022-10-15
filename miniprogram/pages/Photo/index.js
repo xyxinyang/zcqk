@@ -25,15 +25,7 @@ Page({
     let that = this;
     let qknum = this.data.qknum;
     qknum++;
-    wx.cloud.callFunction({
-      name:"update",
-      data:{
-        choice:5,
-        setname:'Photo',
-        name:that.data.name,
-        qknum:qknum
-      }
-    }).then(res=> wx.chooseImage({
+    wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
@@ -46,17 +38,36 @@ Page({
         filePath: res.tempFilePaths[0], // 小程序临时文件路径
         success: res => {
           // 返回文件 ID
+          wx.cloud.callFunction({
+            name:"update",
+            data:{
+              choice:5,
+              setname:'Photo',
+              name:that.data.name,
+              qknum:qknum
+            }
+          })
           wx.redirectTo({
             url: '../Photo/index',
           })
-          console.log(qknum)
+          //console.log(qknum)
           console.log(res.fileID)
         },
-        fail: console.error
+        fail:res=>{ console.error }
       })
-    }))
+    })
   },
-
+  previewImage(e) {
+    //console.log(e)
+    let {
+      sources,
+      index
+    } = e.currentTarget.dataset
+    wx.previewMedia({
+      sources,
+      current: index
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
