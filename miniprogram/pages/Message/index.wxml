@@ -1,4 +1,4 @@
-<!--pages/Message/index.wxml-->
+<!-- 
 <view wx:for="{{datalist}}" wx:key="index">
   <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells">
   <mp-cells  title="{{item.what}}" >
@@ -7,21 +7,32 @@
         <view slot="footer">{{item.date}}</view>
     </mp-cell>
     <mp-cell>
-        <view>内容：</view>
-        <view slot="footer">{{item.content}}</view>
+        <view style="width:70%" slot="footer">{{item.content}}</view>
         <view slot="footer">来自：{{item.owner}}</view>
     </mp-cell>
-    <!-- <mp-cell>
-        <view>来自：</view>
-        <view slot="footer">{{item.owner}}</view>
-    </mp-cell> -->
   </mp-cells>
 </mp-slideview>
+</view> -->
+
+<view class="form-group_label">🐏我们的留言板</view>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <mp-slideview wx:for="{{datalist}}" wx:key="index" buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells" >
+    <mp-cells title="{{item.date}}">
+    <mp-cell>
+      <!-- <view class="title" style="width:90px"  slot="icon"></view> -->
+      <view class="content" style="word-break: break-all;text-align:left;color:grey;font-size:17px" slot="footer">{{item.content}}
+      </view>
+      <view class="content" style="text-align:right;font-size:13px;color:black;" slot="footer">来自：{{item.owner}}</view>
+    </mp-cell>
+    </mp-cells>
+    <view style="border-bottom:1px solid grey"></view>
+  </mp-slideview>
 </view>
+
 <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;z-index:100;">
-  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
-      <view style="border:1px solid red;">
-        <image bindtap="toadd" style="width:30px;height:30px" src="../../images/humi-project.png"></image>
+  <movable-view style="pointer-events: auto; width: 15%; height: 20%;justify-content:center:" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+      <view style="border:1px solid black;">
+        <image bindtap="toadd" style="width:50px;height:50px" src="../../images/humi-project.png"></image>
       </view>
   </movable-view>
 </movable-area>

@@ -1,32 +1,24 @@
-
-.btn-normal{
-  margin: 2%;
-  color: white;
-  background-color: #3d3d3d;
+/* pages/About/index.wxss */
+.title,.content{
+  font-size: 30rpx;
 }
-.btn-hover{
-  color: black;
-  background-color: gray;
+.form-cell {
+  padding: 0;
 }
 
-.search-bar {
-  position: relative;
-  width: 100%;
+.test{
+  margin-top: 10px;
+}
+
+
+.slide {
   display: flex;
-  box-sizing: border-box;
-  background-color: #EFEFF4;
-  border: 1rpx solid #E6E6EA;
-  border-radius: 5px;
-}
-.search-input {
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 5px; */
   position: relative;
-  left: 28px;
-  height: 28px;
-  width: 80%;
-  line-height: 28px;
-  font-size: 14px;
 }
-.search-icon {
-  position: absolute;
-  margin: 2px;
+
+.title {
+  font-size: 12px;
 }

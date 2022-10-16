@@ -1,11 +1,11 @@
 <!--pages/MessageAdd/index.wxml-->
-<view style="margin-top:20%;margin:10%">
-  <form bindsubmit="submit">
+<view style="margin-top:20%;margin:10%;justify-content:center">
+  <form bindsubmit="submit" >
     <view class="section">
-  <textarea placeholder="输入内容" name="textarea" auto-focus />
+  <textarea style="background-color:white;width:100%" placeholder="有什么想对TA说的" name="textarea" auto-focus />
 </view>
-    <view>
-      <button class="login_btn" form-type="submit">发布</button>
+    <view style="margin-top:20px">
+      <button class="login_btn" type="primary" form-type="submit">发布</button>
     </view>
   </form>
 </view>

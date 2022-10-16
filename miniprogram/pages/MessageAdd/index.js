@@ -12,13 +12,19 @@ Page({
     date:''
   },
   submit:function(res){
-    console.log(res.detail)
+    //console.log(res.detail)
     let owner=this.data.owner
-    console.log(this.data.owner)
+    //console.log(this.data.owner)
     let date = util.formatTime(new Date(),2);
-    console.log(date)
+    //console.log(date)
     let {textarea}=res.detail.value
-    db.add({
+    if(textarea=='') {  //还可以自定义image
+      wx.showToast({
+        title: '内容不能为空',
+        icon:'none'
+      })
+    }
+    else db.add({
       data:{
         owner:owner,
         content:textarea,
