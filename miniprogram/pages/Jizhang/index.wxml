@@ -25,11 +25,11 @@
     </view>
   </view>
 </view>
-
-<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);margin-bottom:30%;">
-  <view wx:for="{{results}}" wx:key="index" bindtouchstart="getfirst" data-index="{{index}}">
+<view>
+  <!-- 必须得放view里面，不知道为什么 -->
+  <view wx:for="{{results}}" wx:key="index" bindtouchstart="getfirst" data-index="{{index}}" class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view wx:if="{{item.length!=0}}" style="margin-bottom:20px">
-      <view style="border-bottom:1px solid grey;padding-left:10px">{{month}}月{{index}}日</view>
+      <view style="padding-left:10px;padding-top:10px">{{month}}月{{index}}日</view>
     <mp-slideview  wx:for="{{item}}" wx:key="index" buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap" ext-class="my-cells">
       <mp-cells>
         <mp-cell>
@@ -41,16 +41,11 @@
     </view>
   </view>
 </view>
+<view style="margin-bottom:20%"></view>
+
 <view wx:if="{{nowdatalist.length==0||length==0}}" style="text-align:center;font-size:30px">
   本月无账单
 </view>
-<!-- <view wx:for="{{results}}" wx:key="index">
-  <view wx:if="{{item.length!=0}}">
-    <view wx:for="{{item}}" wx:key="index">
-      {{item.date}}:{{item.count}}
-    </view>
-  </view>
-</view> -->
 
 <mp-tabbar ext-class="foot-tabbar" style="position:fixed;bottom:0;width:100%;left:0;right:0;z-index:1000"
   list="{{list}}" bindchange="tabChange" current="1"></mp-tabbar>

@@ -22,7 +22,7 @@ Page({
           infos:list
         },
         success:res=>{
-          wx.redirectTo({
+          wx.reLaunch({
             url: '../About/index',
           })
         }
@@ -42,7 +42,7 @@ Page({
         us:list
       },
       success:res=>{
-        wx.redirectTo({
+        wx.reLaunch({
           url: '../About/index',
         })
       }

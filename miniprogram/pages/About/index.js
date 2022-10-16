@@ -15,37 +15,37 @@ Page({
   },
   toadd1(){
     console.log(this.data.zcothers)
-    wx.redirectTo({
+    wx.navigateTo({
       //JSON转换传递参数
       url: '../AboutAdd/index?choice=1&list='+JSON.stringify(this.data.zcothers),
     })
   },
   toadd2(){
     console.log(this.data.qkothers)
-    wx.redirectTo({
+    wx.navigateTo({
       //JSON转换传递参数
       url: '../AboutAdd/index?choice=2&list='+JSON.stringify(this.data.qkothers),
     })
   },
   toadd3(){
     console.log(this.data.us)
-    wx.redirectTo({
+    wx.navigateTo({
       //JSON转换传递参数
       url: '../AboutAdd/index?choice=3&list='+JSON.stringify(this.data.us),
     })
   },
   edit1(name,detail,index){
-    wx.redirectTo({
+    wx.navigateTo({
       url:'../AboutEdit/index?choice=1&list='+JSON.stringify(this.data.zcothers)+'&name='+name+'&detail='+detail+'&index='+index,
     })
   },
   edit2(name,detail,index){
-    wx.redirectTo({
+    wx.navigateTo({
       url:'../AboutEdit/index?choice=2&list='+JSON.stringify(this.data.qkothers)+'&name='+name+'&detail='+detail+'&index='+index,
     })
   },
   edit3(name,detail,index){
-    wx.redirectTo({
+    wx.navigateTo({
       url:'../AboutEdit/index?choice=3&list='+JSON.stringify(this.data.us)+'&name='+name+'&detail='+detail+'&index='+index,
     })
   },
