@@ -18,6 +18,17 @@ Page({
       url: '../MessageAdd/index?owner='+this.data.owner,
     })
   },
+  slideButtonTap(e){
+    let id=e.currentTarget.dataset.index;
+    let choice = e.detail.index
+    if(choice==0){
+      wx.showToast({
+        title: '对TA的留言不能删除哟',
+        icon:'none'
+      })
+    }
+    //console.log(e)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
