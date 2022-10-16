@@ -104,6 +104,12 @@
           "pathName": "pages/AboutAdd/index",
           "query": "choice=1",
           "scene": null
+        },
+        {
+          "name": "pages/Password/index",
+          "pathName": "pages/Password/index",
+          "query": "user=zc",
+          "scene": null
         }
       ]
     }

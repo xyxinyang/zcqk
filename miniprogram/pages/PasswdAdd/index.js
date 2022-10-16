@@ -9,13 +9,41 @@ Page({
    */
   data: {
     owner:'',
+    choice:'1',  //1是添加，2是修改
+    v1:'',
+    v2:'',
+    v3:'',
+    id:''
   },
   submit:function(res){
     console.log(res)
+    let that = this
     let owner=this.data.owner
     let {what,user,passwd}=res.detail.value;
+    let choice = this.data.choice;
+    let id = this.data.id
+    //console.log(choice)
+    if(choice=='2'){
+      console.log(id)
+      wx.cloud.callFunction({
+        name:"update",
+        data:{
+          choice:9,
+          setname:'Password',
+          id:id,
+          what:what,
+          user:user,
+          passwd:passwd
+        },
+        success:res=>{
+          wx.reLaunch({
+            url: '../Password/index?user='+owner,
+          })
+        }
+      })
+    }
     //检查
-    db.where({
+    else db.where({
       owner:owner,
       what:what,
       user:user
@@ -38,7 +66,7 @@ Page({
             duration:2000
           })
           wx.reLaunch({
-            url: '../MainPage/index',
+            url: '../Password/index?user='+owner,
           })
         }
       })
@@ -55,13 +83,27 @@ Page({
    */
   onLoad: function (options) {
     var that=this
-    console.log(options.owner)
-    if(options.owner!=undefined)
+   // console.log(options.owner)
+    if(options.owner!=undefined&&options.choice=='2')
     {
+      let data = JSON.parse(options.data)
+      //console.log(data)
       that.setData({
+        choice:options.choice,
+        id:data._id,
+        v1:data.what,
+        v2:data.user,
+        v3:data.passwd,
         owner:options.owner
       })
     }
+    else if(options.owner!=undefined){
+      that.setData({
+        choice:options.choice,
+        owner:options.owner
+      })
+    }
+    //console.log(that.data.v1)
   },
 
   /**

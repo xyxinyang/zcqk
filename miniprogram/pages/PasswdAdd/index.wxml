@@ -1,16 +1,19 @@
 <view style="margin-top:40%">
   <form bindsubmit="submit">
     <view class="form_item input-info" style="margin-bottom: 20px;">
-      <input name="what" type="text" placeholder="账号描述" ></input>
+      <input name="what" value="{{v1}}" type="text" placeholder="账号描述" ></input>
     </view>
     <view class="form_item input-info" style="margin-bottom: 20px;">
-      <input name="user" type="text" placeholder="用户名" />
+      <input name="user" value="{{v2}}" type="text" placeholder="用户名" />
     </view>
     <view class="form_item input-info" style="margin-bottom: 40px;">
-      <input name="passwd" type="password" placeholder="密码" />
+      <input name="passwd" value="{{v3}}" type="password" placeholder="密码" />
     </view>
-    <view>
+    <view wx:if="{{choice=='1'}}">
       <button class="login_btn" form-type="submit">添加</button>
+    </view>
+    <view wx:else>
+      <button class="login_btn" form-type="submit">修改</button>
     </view>
   </form>
 </view>

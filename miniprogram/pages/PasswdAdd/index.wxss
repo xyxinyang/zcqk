@@ -2,14 +2,15 @@
 
 .form_item {
   margin: 0 50rpx;
-  height: 36px;
+  height: 40px;
   border: 1px solid rgb(50, 100, 192);
+  background-color: white;
   border-radius: 5px;
 }
 
 .input {
   float: left;
-  height: 36px;
+  height: 40px;
 }
 
 .login_btn {

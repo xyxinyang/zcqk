@@ -9,22 +9,50 @@ Page({
   data: {
     user:'',
     search:'',
-    screenWidth: 1000,
+    value:'',
+    screenWidth: 10,
     screenHeight: 1000,
     datalist:[],
+    searchlist:[]
   },
   toadd(){
     console.log(this.data.user)
-    wx.navigateTo({
-      url: '../PasswdAdd/index?owner='+this.data.user,
+    wx.navigateTo({ //choice为1是添加，2是修改
+      url: '../PasswdAdd/index?choice=1&owner='+this.data.user,
+    })
+  },
+  onSearch(element){
+    let value = element.detail.value
+    let datalist = this.data.datalist
+    let searchlist = []
+    //console.log(element.detail.value)
+    this.setData({value})
+    for(let i=0;i<datalist.length;i++){
+      if(datalist[i].what.includes(value)) searchlist.push(datalist[i])
+    }
+    this.setData({
+      searchlist
     })
   },
   slideButtonTap(element){
     let that=this
     let {index}=element.detail
     let passwdid=element.currentTarget.dataset.index
+    let datalist = this.data.datalist
     //console.log(element.currentTarget.dataset.index)
-    if(index==2){
+    if(index==0){
+     // console.log(datalist[passwdid])
+      wx.navigateTo({
+        url: '../PasswdAdd/index?choice=2&owner='+that.data.user+'&data='+JSON.stringify(datalist[passwdid]),
+      })
+    }
+    else if(index==1){
+      wx.showToast({
+        title: '暂未开发，敬请期待',
+        icon:'none'
+      })
+    }
+    else if(index==2){
       wx.showModal({
         title: '确定删除？',
         content:'',

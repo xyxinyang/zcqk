@@ -1,12 +1,12 @@
 <!--pages/Password/index.wxml-->
-<view>{{user}}的密码库</view>
+<view style="text-align:center;margin-top:10px;font-size:25px">{{user}}的密码库</view>
 <view  wx:if="{{datalist.length > 0}}">
   <view class="form-group"><view class="search-bar">
     <icon class="search-icon" type="search" size="24"></icon>
     <input class="search-input" placeholder="搜索账号" bindinput="onSearch" value="{{search}}" />
   </view></view>
 </view>
-<view wx:for="{{datalist}}" wx:key="index">
+<view wx:if="{{value==''}}" wx:for="{{datalist}}" wx:key="index">
   <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells">
   <mp-cells  title="{{item.what}}" >
     <mp-cell>
@@ -20,8 +20,21 @@
   </mp-cells>
 </mp-slideview>
 </view>
-
-<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+<view wx:if="{{value!=''}}" wx:for="{{searchlist}}" wx:key="index">
+  <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells">
+  <mp-cells  title="{{item.what}}" >
+    <mp-cell>
+        <view>账号：</view>
+        <view slot="footer">{{item.user}}</view>
+    </mp-cell>
+    <mp-cell>
+        <view>密码：</view>
+        <view slot="footer">{{item.passwd}}</view>
+    </mp-cell>
+  </mp-cells>
+</mp-slideview>
+</view>
+<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;z-index:1000;">
   <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
     <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toadd" 
     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
