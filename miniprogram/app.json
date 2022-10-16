@@ -22,7 +22,8 @@
     "pages/Goat/index",
     "pages/About/index",
     "pages/AboutAdd/index",
-    "pages/AboutEdit/index"
+    "pages/AboutEdit/index",
+    "pages/Fail/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

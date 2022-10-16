@@ -1,4 +1,5 @@
 /* Main page of the app */
+var app = getApp()
 var util = require('../../utils/utils.js')
 Page({
     data: {
@@ -152,6 +153,17 @@ Page({
         })
     },
     onLoad: function (options) {
+        wx.cloud.callFunction({
+            name:'getOpenId',
+        }).then(res=>{
+            //console.log(res.result)
+           if(res.result!=app.globalData._openidA&&res.result!=app.globalData._openidB){
+               //console.log('fail')
+               wx.reLaunch({
+                 url: '../Fail/index',
+               })
+           }
+        })
         var that = this
         setInterval(function () {
             that.timer()
