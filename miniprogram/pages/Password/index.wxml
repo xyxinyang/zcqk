@@ -11,11 +11,15 @@
   <mp-cells  title="{{item.what}}" >
     <mp-cell>
         <view>账号：</view>
-        <view slot="footer">{{item.user}}</view>
+        <view  slot="footer">
+          <text selectable="true" user-select="true">{{item.user}}</text>
+        </view>
     </mp-cell>
     <mp-cell>
         <view>密码：</view>
-        <view slot="footer">{{item.passwd}}</view>
+        <view  slot="footer">
+          <text selectable="true" user-select="true">{{item.passwd}}</text>
+        </view>
     </mp-cell>
   </mp-cells>
 </mp-slideview>
@@ -25,11 +29,15 @@
   <mp-cells  title="{{item.what}}" >
     <mp-cell>
         <view>账号：</view>
-        <view slot="footer">{{item.user}}</view>
+        <view  slot="footer">
+          <text selectable="true" user-select="true">{{item.user}}</text>
+        </view>
     </mp-cell>
     <mp-cell>
         <view>密码：</view>
-        <view user-select="true" slot="footer">{{item.passwd}}</view>
+        <view  slot="footer">
+          <text selectable="true" user-select="true">{{item.passwd}}</text>
+        </view>
     </mp-cell>
   </mp-cells>
 </mp-slideview>

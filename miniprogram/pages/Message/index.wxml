@@ -1,31 +1,15 @@
-<!-- 
-<view wx:for="{{datalist}}" wx:key="index">
-  <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells">
-  <mp-cells  title="{{item.what}}" >
-    <mp-cell>
-        <view>时间：</view>
-        <view slot="footer">{{item.date}}</view>
-    </mp-cell>
-    <mp-cell>
-        <view style="width:70%" slot="footer">{{item.content}}</view>
-        <view slot="footer">来自：{{item.owner}}</view>
-    </mp-cell>
-  </mp-cells>
-</mp-slideview>
-</view> -->
-
 <view class="form-group_label">🐏我们的留言板</view>
-<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
-  <mp-slideview wx:for="{{datalist}}" wx:key="index" buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells" >
+<view class="form-group" wx:for="{{datalist}}" wx:key="index" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <mp-slideview  buttons="{{slideButtons}}" data-index='{{index}}' bindbuttontap="slideButtonTap"  ext-class="my-cells" >
     <mp-cells title="{{item.date}}">
-    <mp-cell>
+    <mp-cell ext-class="my-cell">
       <!-- <view class="title" style="width:90px"  slot="icon"></view> -->
       <view class="content" style="word-break: break-all;text-align:left;color:grey;font-size:17px" slot="footer">{{item.content}}
       </view>
       <view class="content" style="text-align:right;font-size:13px;color:black;" slot="footer">来自：{{item.owner}}</view>
     </mp-cell>
     </mp-cells>
-    <view style="border-bottom:1px solid grey"></view>
+    <!-- <view style="border-bottom:1px solid grey"></view> -->
   </mp-slideview>
 </view>
 

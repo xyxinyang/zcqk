@@ -9,7 +9,12 @@
 .test{
   margin-top: 10px;
 }
-
+.my-cell{
+  border: 0;
+}
+.my-cells{
+  border: 0;
+}
 
 .slide {
   display: flex;
