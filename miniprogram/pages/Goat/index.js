@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    srcMic: ['cloud://test-1ed495.7465-test-1ed495-1259259172/mie.mp3','cloud://test-1ed495.7465-test-1ed495-1259259172/lei.m4a',''],
-    array:['羊叫','宝贝我好累','老婆我爱你'],
+    srcMic: ['cloud://test-1ed495.7465-test-1ed495-1259259172/mie.m4a','cloud://test-1ed495.7465-test-1ed495-1259259172/lei.m4a','cloud://test-1ed495.7465-test-1ed495-1259259172/love.m4a','cloud://test-1ed495.7465-test-1ed495-1259259172/chi.m4a'],
+    array:['羊叫','宝贝我好累','老婆我爱你','想吃草'],
     videoindex:0,
     name: 'miemie',
     level: 0,
