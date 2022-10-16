@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    srcMic: './videos/mie.mp3',
+    srcMic: ['cloud://test-1ed495.7465-test-1ed495-1259259172/mie.mp3','cloud://test-1ed495.7465-test-1ed495-1259259172/lei.m4a',''],
+    array:['羊叫','宝贝我好累','老婆我爱你'],
+    videoindex:0,
     name: 'miemie',
     level: 0,
     ji: 0,
@@ -19,13 +21,21 @@ Page({
   },
   miemie() {
     let that = this
+    let index = this.data.videoindex
+    let lists = this.data.srcMic
     //创建内部 audio 上下文 InnerAudioContext 对象。
     const innerAudioContext = wx.createInnerAudioContext({
       useWebAudioImplement: true
     });
-    innerAudioContext.src = 'cloud://test-1ed495.7465-test-1ed495-1259259172/mie.mp3' //设置音频地址
+    innerAudioContext.src =  lists[index] //设置音频地址
     innerAudioContext.play(); //播放音频
-    console.log(innerAudioContext)
+    //console.log(innerAudioContext.src)
+  },
+  bindPickerChange(e){
+    //console.log(e.detail.value)
+    this.setData({
+      videoindex:Number(e.detail.value)
+    })
   },
   addji(e) {
     let that = this;

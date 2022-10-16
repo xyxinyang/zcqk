@@ -1,29 +1,39 @@
 <view >
     <view class="flex-row" style="display: flex;flex-direction: row;justify-content:space-between;margin-top:10rpx;">
         <view class="flex-view-item"></view>
-        <view class="flex-view-item">欢迎来到qk的专属羊窝</view>
+        <view class="flex-view-item" style="font-size:25px">欢迎来到qk的专属羊窝</view>
         <view class="flex-view-item"></view>
     </view>
     <view style="display: flex;justify-content:center;">羊羊级别：{{level}}</view>
     <view style="display: flex;justify-content:center;">每天来看一眼羊羊，羊羊才会升级哟</view>
-    <view class="state-father" style="display: flex;background-color:#00ff00;align-items:center;margin-left:20rpx;">
-            <text class="section__title">饥饿值：</text>
+    <view style="display: flex;justify-content:center;margin-bottom:20px;font-size:12px">Tips:羊羊是会叫的羊羊</view>
+    <view class="state-father" style="display: flex;align-items:center;justify-content:center;">
+            <text class="section__title">体力值：</text>
              <view style="width:60%"> <slider value="{{ji}}" disabled="true" bindchange="slider3change" block-size="12" show-value/></view> 
         </view>
-        <view class="state-father" style="display: flex;background-color:#00ff00;align-items:center;margin-left:20rpx;">
-            <text class="section__title">干净程度：</text>
+        <view class="state-father" style="display: flex;align-items:center;justify-content:center;">
+            <text class="section__title">干净值：</text>
              <view style="width:60%"> <slider value="{{clean}}" disabled="true" bindchange="slider3change" block-size="12" show-value/></view> 
         </view>
-    <view class="father" style="display: flex-column;align-items:center;margin-top:10%;margin-bottom:5%;">
+    <view class="father" style="display: flex-column;align-items:center;margin-top:10px;margin-bottom:5%;">
     <image src="cloud://test-1ed495.7465-test-1ed495-1259259172/goat.JPG" bindtap="miemie"></image>
    </view>
    <view class="hu-father" style="display: flex;justify-content:center;">
      <image class="hu-img" bindtap="addji" src="cloud://test-1ed495.7465-test-1ed495-1259259172/siliao.jpeg"></image>
      <image class="hu-img" bindtap="addclean" src="cloud://test-1ed495.7465-test-1ed495-1259259172/bath.jpeg"></image>
    </view>
+   <view class="hu-father" style="display: flex;justify-content:center;">
+       <view class="hu-text">喂羊羊吃草</view>
+       <view class="hu-text">给羊羊洗澡</view>
+   </view>
     <!-- <view class="flex-column" style="display:flex;flex-direction: column;" >
         <view class="flex-view-item">c1</view>
         <view class="flex-view-item">c2</view>
         <view class="flex-view-item">c3</view>
     </view> -->
+    <view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <button type="default" plain="true">点我有惊喜</button>
+        </picker>
+    </view>
 </view>
