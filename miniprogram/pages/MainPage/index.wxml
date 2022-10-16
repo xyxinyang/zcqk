@@ -1,43 +1,42 @@
 <view style="width:100%; background: none;">
-
-  <swiper circular="true" indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
-      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="cloud://test-1ed495.7465-test-1ed495-1259259172/zcqk/qk1.jpg" mode='aspectFit' class="swiper-image" /></swiper-item>
+ <view>
+  <swiper circular="true" indicator-dots="true" autoplay="true" interval="2000" duration="500" style="display:flex;background: yellow; height: 200px; width:100%">
+    <block>
+      <swiper-item><image src="{{bizhi[0]}}" mode='aspectFit' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="{{bizhi[1]}}" mode='aspectFit' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="{{bizhi[2]}}" mode='aspectFit' class="swiper-image" /></swiper-item>
+    </block>
   </swiper>
+ </view>
+
+ <view class="form-group_label">🐏 欢迎回来</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell love">
+      <view class="slide" style="justify-content:center">
+        <view style="padding-right:0px;font-size:20px">{{userB}}</view>
+        <view class="title" >
+          <image style="height:70px;width:91px" src="cloud://test-1ed495.7465-test-1ed495-1259259172/love.png"></image>
+        </view>
+        <view style="padding-left:0px;font-size:20px">{{userA}}</view>
+      </view>
+      <view class="slide" style="justify-content:center">
+        <view></view>
+        <view class="title">相恋{{day}}天{{hour}}小时{{minute}}分钟{{second}}秒</view>
+        <view></view>
+      </view>
+    </view>
+  </view>
 
 <view class="form-group_label">💰 积分榜</view>
     <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell">
-        <view class="slide">
-        <view class="title">{{userA}}的积分：{{creditA}}</view>
-        </view>
-    </view>
-    <view class="form-cell">
-        <view class="slide">
-        <view class="title">{{userB}}的积分：{{creditB}}</view>
+        <view class="slide" style="justify-content:center">
+        <view class="title" style="padding-right:30px">{{userA}}的积分：{{creditA}}</view>
+        <view class="title" style="padding-left:30px">{{userB}}的积分：{{creditB}}</view>
         </view>
     </view>
 </view>
 
-<view class="form-group_label">🐻 欢迎回来</view>
-  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
-    <!-- <view class="form-cell">
-      <view class="slide">
-        <view bindtap="topasswd" class="title" >共享密码本</view>
-      </view>
-    </view> -->
-    <view class="form-cell">
-      <view class="slide">
-        <view class="title">欢迎！zc和qk！相恋{{day}}天{{hour}}小时{{minute}}分钟{{second}}秒</view>
-      </view>
-    </view>
-    <!-- <view class="form-cell">
-      <view class="slide">
-        <view class="title">今天想做什么呢？</view>
-      </view>
-    </view> -->
-  </view>
   <view class="section">
   <view class="tui-table-view">
     <view class="tui-col-3">

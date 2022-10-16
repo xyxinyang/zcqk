@@ -13,6 +13,7 @@ Page({
         timecount: '00:00:00',
         userA: '',
         userB: '',
+        bizhi:['cloud://test-1ed495.7465-test-1ed495-1259259172/1.jpg','cloud://test-1ed495.7465-test-1ed495-1259259172/2.jpg','cloud://test-1ed495.7465-test-1ed495-1259259172/3.jpg']
     },
 
     async onShow() {
