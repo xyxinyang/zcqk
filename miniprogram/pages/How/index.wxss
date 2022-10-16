@@ -1,0 +1,19 @@
+
+.title,.content{
+  font-size: 30rpx;
+}
+.form-cell {
+  padding: 0;
+}
+
+.slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+}
+
+.title {
+  font-size: 12px;
+}

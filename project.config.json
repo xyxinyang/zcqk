@@ -110,6 +110,12 @@
           "pathName": "pages/Password/index",
           "query": "user=zc",
           "scene": null
+        },
+        {
+          "name": "pages/How/index",
+          "pathName": "pages/How/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

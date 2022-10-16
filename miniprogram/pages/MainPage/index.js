@@ -108,6 +108,11 @@ Page({
             url: '../About/index',
         })
     },
+    tohow(){
+        wx.navigateTo({
+          url: '../How/index',
+        })
+    },
     tojizhang() {
         wx.showActionSheet({
             itemList: ['zc', 'qk'],
@@ -153,6 +158,7 @@ Page({
         })
     },
     onLoad: function (options) {
+        var that = this
         wx.cloud.callFunction({
             name:'getOpenId',
         }).then(res=>{
@@ -163,11 +169,10 @@ Page({
                  url: '../Fail/index',
                })
            }
-        })
-        var that = this
-        setInterval(function () {
+           setInterval(function () {
             that.timer()
         }, 100);
+        })
     },
 
     /**

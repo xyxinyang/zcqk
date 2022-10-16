@@ -29,7 +29,7 @@
     </mp-cell>
     <mp-cell>
         <view>密码：</view>
-        <view slot="footer">{{item.passwd}}</view>
+        <view user-select="true" slot="footer">{{item.passwd}}</view>
     </mp-cell>
   </mp-cells>
 </mp-slideview>

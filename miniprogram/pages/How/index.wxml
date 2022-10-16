@@ -1,0 +1,29 @@
+<!--pages/How/index.wxml-->
+<view class="form-group_label">🐏zc&qk的小屋</view>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title" style="width:30%">当前版本</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">v{{version}}</view>
+    </view>
+  </view>
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title" style="width:30%">使用说明</view>
+      <!-- <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">v{{version}}</view> -->
+    </view>
+    <view class="content" style="word-break: break-all;color:grey;margin-left:5%;margin-right:5%;margin-bottom:5%">
+      <text user-select="true">
+        1.主页:只有情侣两个人才能进入，可以布置任务，完成任务，设置小商品，购买小商品，查看仓库 \n
+        2.密码本:可以分别查看{{userA}}和{{userB}}的密码本，可以添加，修改，删除，搜索密码 \n
+        3.留言:可以对TA留下你想说的话，没法删除哟  \n
+        4.云相册：可以上传图片到云相册，点击图片可以预览，长按可以下载图片，暂未开发删除功能 \n
+        5.记账本：可以分别查看{{userA}}和{{userB}}的记账本，可以添加，删除账单记录，并且查看总体账单 \n
+        6.云备忘录：功能太过简单且无用，懒得开发 \n
+        7.姨妈助手：可以记录姨妈，并推算姨妈要走的时间，以及下次姨妈要来的时间，是按照{{userA}}的经期和时长特别制定的，同时还能记录两个人做爱的时间，措施，支持编辑修改 \n
+        8.云养🐏：专门为{{userA}}量身定做的小情趣，每天喂养羊羊可以升级，并且羊羊还会发出叫声，叫声目前内置三种 \n
+        9.我们♥：介绍{{userA}}和{{userB}}的信息，特征，以及两个人的大事件 \n
+      </text>
+    </view>
+  </view>
+</view>

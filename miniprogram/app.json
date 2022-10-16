@@ -23,6 +23,7 @@
     "pages/About/index",
     "pages/AboutAdd/index",
     "pages/AboutEdit/index",
+    "pages/How/index",
     "pages/Fail/index"
   ],
   "window": {
