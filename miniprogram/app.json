@@ -24,7 +24,8 @@
     "pages/AboutAdd/index",
     "pages/AboutEdit/index",
     "pages/How/index",
-    "pages/Fail/index"
+    "pages/Fail/index",
+    "pages/Log/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

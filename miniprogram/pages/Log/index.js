@@ -1,36 +1,21 @@
-// pages/How/index.js
-var app = getApp()
+// pages/Log/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    version:'1.0.3',
-    versioninfo:[['最初版本','增加了相册删除功能','增加了上次登录的记录','增加了版本信息说明']],   //从1.0.0开始记录，一个大版本是一个数组
-    userA:'',
-    userB:''
+    version:'',
+    infos:''
   },
-  showdetails(){
-    let text = ''
-    let infos = this.data.versioninfo
-    for(let i=0;i<infos.length;i++){
-      for(let j=0;j<infos[i].length;j++){
-         text += 'v1.' + i + '.' + j + ' ' + infos[i][j] + '\n'
-      }
-    }
-    wx.navigateTo({
-      url: '../Log/index?infos='+text+'&version='+this.data.version,
-    })
-    //console.log(text)
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.setData({
-      userA:app.globalData.userA,
-      userB:app.globalData.userB,
+      version:options.version,
+      infos:options.infos
     })
   },
 

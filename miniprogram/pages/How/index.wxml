@@ -2,7 +2,7 @@
 <view class="form-group_label">🐏zc&qk的小屋</view>
 <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
   <view class="form-cell">
-    <view class="slide">
+    <view class="slide" bindtap="showdetails">
       <view class="title" style="width:30%">当前版本</view>
       <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">v{{version}}</view>
     </view>

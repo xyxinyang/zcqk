@@ -1,0 +1,21 @@
+<!--pages/How/index.wxml-->
+<view class="form-group_label">🐏版本信息</view>
+<view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title" style="width:30%">当前版本</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">v{{version}}</view>
+    </view>
+  </view>
+  <view class="form-cell">
+    <view class="slide">
+      <view class="title" style="width:30%">历史版本信息</view>
+      <!-- <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">v{{version}}</view> -->
+    </view>
+    <view class="content" style="word-break: break-all;color:grey;margin-left:5%;margin-right:5%;margin-bottom:5%">
+      <text user-select="true">
+        {{infos}}
+      </text>
+    </view>
+  </view>
+</view>
