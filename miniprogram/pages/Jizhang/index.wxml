@@ -48,4 +48,4 @@
 </view>
 
 <mp-tabbar ext-class="foot-tabbar" style="position:fixed;bottom:0;width:100%;left:0;right:0;z-index:1000"
-  list="{{list}}" bindchange="tabChange" current="1"></mp-tabbar>
+  list="{{list}}" bindchange="tabChange" current="{{tabbarindex}}"></mp-tabbar>

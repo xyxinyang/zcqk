@@ -9,6 +9,7 @@ Page({
    */
   data: {
     user:'zc',
+    tabbarindex:1,
     screenWidth: 1000,
     screenHeight: 1000,
     date:'2016-09',
@@ -27,13 +28,18 @@ Page({
     list:[{    //底部导航
       "pagePath": "/pages/JiAdd/index",
       "text": "记账",
+      "iconPath":"/images/humi-project.png",
       "selectedIconPath": "/images/humi-project.png"    
     },{
       "pagePath": "/pages/Jizhang/index",
       "text": "明细",
+      "iconPath":"/images/detail.png",
+      "selectedIconPath": "/images/detail.png"    
     },{
       "pagePath":"/pages/TuBiao/index",
-      "text":"账单"
+      "text":"账单",
+      "iconPath":"/images/year.png",
+      "selectedIconPath": "/images/year.png"    
     }]
   },
   tabChange: function(e) {
@@ -192,6 +198,9 @@ Page({
    */
   onShow: function () {
     let that=this
+    that.setData({
+      tabbarindex:1
+    })
     wx.cloud.callFunction({
       name:"getList",
       data:{
