@@ -42,7 +42,9 @@ Page({
     }
     for(let i=0;i<13;i++) {
       if(ru[i]==0&&chu[i]==0) isshow[i]=false
-      jing[i]=ru[i]-chu[i]
+      ru[i] = Number(ru[i].toFixed(2))
+      chu[i] = Number(chu[i].toFixed(2))
+      jing[i]= ru[i]- chu[i]
     }
     for(let i=0;i<13;i++){
       alljing+=jing[i]

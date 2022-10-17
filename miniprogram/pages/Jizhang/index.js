@@ -68,7 +68,9 @@ Page({
     //console.log(month)
     jing = ru - chu
     this.setData({
-      ru,chu,jing,
+      ru : Number(ru.toFixed(2)),
+      chu : Number(chu.toFixed(2)),
+      jing : Number(jing.toFixed(2)),
       nowdatalist:nowdatalist,
       date: e.detail.value,
       results:results,
@@ -230,7 +232,9 @@ Page({
         //console.log(results)
         jing = ru -chu
         that.setData({
-          ru,chu,jing,
+          ru : Number(ru.toFixed(2)),
+          chu : Number(chu.toFixed(2)),
+          jing : Number(jing.toFixed(2)),
           nowdatalist:nowdatalist,
           results:results,
           day:that.data.daylist[that.data.month]
