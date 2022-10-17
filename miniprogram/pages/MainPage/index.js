@@ -4,6 +4,7 @@ var util = require('../../utils/utils.js')
 Page({
     data: {
         creditA: 0,
+        creditAA:0,
         creditB: 0,
         day: 0,
         hour: 0,
@@ -159,6 +160,7 @@ Page({
         })
     },
     onLoad: function (options) {
+        //console.log(this.data.creditA)
         var that = this
         wx.cloud.callFunction({
             name:'getOpenId',
@@ -168,6 +170,18 @@ Page({
                //console.log('fail')
                wx.reLaunch({
                  url: '../Fail/index',
+               })
+           }
+           else{
+               let last = util.formatTime(new Date(),4);
+               wx.cloud.callFunction({
+                   name:'update',
+                   data:{
+                       choice:11,
+                       setname:'UserList',
+                       openid:res.result,
+                       last:last
+                   }
                })
            }
            setInterval(function () {

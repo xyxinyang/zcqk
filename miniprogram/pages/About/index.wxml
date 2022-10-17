@@ -7,6 +7,10 @@
       <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{zcinfos.name}}</view>
     </view>
     <view class="slide">
+      <view class="title" style="width:30%">上次登录</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{zclast}}</view>
+    </view>
+    <view class="slide">
       <view class="title" style="width:30%">身高</view>
       <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{zcinfos.height}}cm
       </view>
@@ -32,6 +36,10 @@
     <view class="slide">
       <view class="title" style="width:30%">姓名</view>
       <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{qkinfos.name}}</view>
+    </view>
+    <view class="slide">
+      <view class="title" style="width:30%">上次登录</view>
+      <view class="content" style="word-break: break-all;width:70%;text-align:right;color:grey;">{{qklast}}</view>
     </view>
     <view class="slide">
       <view class="title" style="width:30%">身高</view>

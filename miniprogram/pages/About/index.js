@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    zclast:'',
+    qklast:'',
     zcinfos:[],
     zcothers:[],
     qkinfos:[],
@@ -206,6 +208,17 @@ Page({
         that.setData({
           qkinfos,zcinfos,zcothers,qkothers,us
         })
+      }
+    })
+    wx.cloud.callFunction({
+      name:"getList",
+      data:{
+        list:'UserList'
+      },
+      success:res=>{
+        let zclast  = res.result.data[0].last;
+        let qklast = res.result.data[1].last;
+        that.setData({zclast,qklast})
       }
     })
   },
