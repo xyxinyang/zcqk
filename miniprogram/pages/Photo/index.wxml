@@ -1,26 +1,45 @@
-<!-- 图片和视频 -->
-<navigationBar title="我们的相册" navigationtype="navigateTo"  bgc="#fff" color="#000" style="margin:5%" ></navigationBar>
+<!-- 
   <view class="img_box">
     <view class="many_img">
-      <!-- 遍历 -->
       <view
         wx:for="{{mediaList}}"
         wx:key="index"
         class="img_item many"
+        data-index="{{index}}"
+        bindtouchstart="getindex"
       >
+      <view wx:if="{{!isdeleted[index]}}">
+        <button bindtap="delete">删除</button>
       <image 
             class="img"
             src="{{item.url}}"
             bindtap="previewImage"
             data-sources="{{mediaList}}"
-            data-index="{{index}}"
             mode="aspectFill"
             show-menu-by-longpress="true"
-          ></image>
-     
+          ></image>   
+      </view>
       </view>
     </view>
+  </view> -->
+  <view style="margin-top:20px">
+    <button bindtap="caozuo" wx:if="{{!ing}}">操作</button>
+    <button bindtap="quxiao" wx:else>取消操作</button>
   </view>
+  <view class="schoollist">
+  <view wx:for="{{mediaList}}" bindtouchstart="getindex" wx:key="index" data-index="{{index}}">
+    <view wx:if="{{!isdeleted[index]}}" class="school-list">
+        <view class="school-list-info" index="{{index}}">
+          <button wx:if="{{ing}}" style="width:350rpx;height:80rpx" bindtap="delete">删除</button>
+          <view wx:else style="width:350rpx;height:80rpx"></view>
+          <image bindtap="previewImage" mode="aspectFill" data-sources="{{mediaList}}" class="school-list-photo" src="{{item.url}}" show-menu-by-longpress="true" data-index="{{index}}"/>
+          <!-- <text class="school-list-desc">111</text> -->
+        </view>
+    </view>
+  </view>
+</view>
+
+
   <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;z-index:1000;">
   <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
     <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toadd" 

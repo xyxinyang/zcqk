@@ -10,16 +10,54 @@ Page({
     screenHeight: 1000,
     zcnum:0,
     qknum:0,
+    ing:false,
     name:"photo",
-    produtctdtl: {},
-    yynewspic: [],
     mediaList:[],
-    licensePicHidden: true,
-    cghtPicHidden: true,
-    zfpwPicHidden: true,
-    wthtPicHidden: true,
-    bossmanPicHidden: true,
-    productId: ""
+    isdeleted:[],
+    index:0
+  },
+  caozuo(){
+    this.setData({
+      ing:true
+    })
+  },
+  quxiao(){
+    this.setData({
+      ing:false
+    })
+  },
+  getindex(e){
+    //console.log(e.currentTarget.dataset.index)
+    this.setData({
+      index:e.currentTarget.dataset.index
+    })
+  },
+  delete(){
+    let that = this
+    let index = this.data.index
+    let isdeleted = this.data.isdeleted
+    console.log(index)
+    wx.showModal({
+      title: '确定删除？',
+      content:'',
+      success: function (res) {
+        if(res.confirm){
+          isdeleted[index] = true
+          that.setData({isdeleted})
+          wx.cloud.callFunction({
+            name:"update",
+            data:{
+              choice:10,
+              setname:'Photo',
+              name:'photo',
+              isdeleted:isdeleted
+            },
+            success:res=>{}
+          })
+        }
+      }
+    })
+    //this.getindex()
   },
   toadd(){
     let that = this;
@@ -83,7 +121,8 @@ Page({
         let data = res.result.data[0];
         that.setData({
           zcnum:data.zc,
-          qknum:data.qk
+          qknum:data.qk,
+          isdeleted:data.isdeleted
         })
         let templist = []
         for(let i=1;i<=that.data.zcnum;i++){
