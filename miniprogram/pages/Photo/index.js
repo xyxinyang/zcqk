@@ -62,6 +62,7 @@ Page({
   toadd(){
     let that = this;
     let qknum = this.data.qknum;
+    let isdeleted = this.data.isdeleted;
     qknum++;
     wx.chooseImage({
       count: 1,
@@ -83,6 +84,21 @@ Page({
               setname:'Photo',
               name:that.data.name,
               qknum:qknum
+            },
+            success:res=>{
+              isdeleted.push(false)
+              wx.cloud.callFunction({
+                name:"update",
+                data:{
+                  choice:10,
+                  setname:'Photo',
+                  name:that.data.name,
+                  isdeleted:isdeleted
+                },
+                success:res=>{
+                  that.setData({isdeleted})
+                }
+              })
             }
           })
           wx.redirectTo({
