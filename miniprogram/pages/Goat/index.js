@@ -1,4 +1,5 @@
 // pages/Goat/index.js
+const innerAudioContext = wx.createInnerAudioContext();
 const db = wx.cloud.database().collection("Goat")
 const base = wx.cloud.database()
 var util = require('../../utils/utils.js')
@@ -24,11 +25,25 @@ Page({
     let index = this.data.videoindex
     let lists = this.data.srcMic
     //创建内部 audio 上下文 InnerAudioContext 对象。
-    const innerAudioContext = wx.createInnerAudioContext({
-      useWebAudioImplement: true
-    });
-    innerAudioContext.src =  lists[index] //设置音频地址
-    innerAudioContext.play(); //播放音频
+    let res = wx.getSystemInfoSync()
+    let syt = res.system.replace(/[^a-z]+/ig,'')
+    //console.log(syt)
+    if(syt=='iOS'){
+      innerAudioContext.src =  lists[index] //设置音频地址
+      innerAudioContext.play(); //播放音频
+    }
+    else{
+      wx.cloud.downloadFile({
+        fileID: lists[index], // 文件 ID
+        success: res => {
+          // 返回临时文件路径
+          //console.log(res.tempFilePath)
+          innerAudioContext.src =  res.tempFilePath //设置音频地址
+          innerAudioContext.play(); //播放音频
+        },
+        fail: console.error
+      })      
+    }
     //console.log(innerAudioContext.src)
   },
   bindPickerChange(e){

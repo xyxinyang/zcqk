@@ -4,7 +4,7 @@
       <input name="detail" type="text" placeholder="账单描述" ></input>
     </view>
     <view class="form_item input-info" style="margin-bottom: 20px;">
-      <input class="weui-input" name="count" type="number" placeholder="金额" />
+      <input class="weui-input" name="count" type="text" placeholder="金额" />
     </view>
 
     <view class="page-section">

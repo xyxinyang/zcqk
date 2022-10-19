@@ -65,6 +65,11 @@ Page({
           owner:app.globalData.userB
         })
       }
+      else if(res.result==app.globalData._openidA){
+        that.setData({
+          owner:app.globalData.userA
+        })
+      }
     })
     wx.cloud.callFunction({
       name:"getList",

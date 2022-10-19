@@ -165,14 +165,17 @@ Page({
         wx.cloud.callFunction({
             name:'getOpenId',
         }).then(res=>{
-            //console.log(res.result)
+            console.log(res.result)
            if(res.result!=app.globalData._openidA&&res.result!=app.globalData._openidB){
+           //if(false){
                //console.log('fail')
                wx.reLaunch({
-                 url: '../Fail/index',
+                 url: '../Fail/index?id='+res.result,
                })
            }
            else{
+               if(res.result==app.globalData._openidA) app.globalData.nowuser='qk'
+               else app.globalData.nowuser='zc'
                let last = util.formatTime(new Date(),4);
                wx.cloud.callFunction({
                    name:'update',
