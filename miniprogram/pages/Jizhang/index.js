@@ -57,7 +57,7 @@ Page({
     let month = Number(date.split("-")[1])
     let datalist = this.data.datalist
     let nowdatalist = []
-    let results = new Array(31)  //创建二维数组
+    let results = new Array(32)  //创建二维数组  //要多设一个，用的是1~31，长度要设为32
     for(let i=0;i<results.length;i++) results[i]=[]
     for(let i=0;i<datalist.length;i++){
       if(datalist[i].date.includes(date)){
@@ -225,7 +225,7 @@ Page({
         let date = that.data.date
         let datalist = that.data.datalist
         let nowdatalist = []
-        let results = new Array(31)  //创建二维数组
+        let results = new Array(32)  //创建二维数组
         for(let i=0;i<results.length;i++) results[i]=[]
         for(let i=0;i<datalist.length;i++){
           if(datalist[i].date.includes(date)){
