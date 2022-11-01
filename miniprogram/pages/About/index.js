@@ -198,12 +198,24 @@ Page({
         list:'About'
       },
       success:res=>{
-        //console.log(res.result.data)
-        let zcinfos = res.result.data[0];
-        let qkinfos = res.result.data[1];
-        let zcothers = res.result.data[0].infos;
-        let qkothers = res.result.data[1].infos;
-        let us = res.result.data[2].us;
+        console.log(res.result.data)
+        let zcinfos,qkinfos,zcothers,qkothers,us
+        for(let i=0;i<3;i++){
+          if(res.result.data[i].name=='zc'){
+            zcinfos = res.result.data[i]
+            zcothers = res.result.data[i].infos;
+          }else if(res.result.data[i].name=='qk'){
+            qkinfos = res.result.data[i]
+            qkothers = res.result.data[i].infos;
+          }else if(res.result.data[i].name=='us'){
+            us = res.result.data[i].us;
+          }
+        }
+        // let zcinfos = res.result.data[0];
+        // let qkinfos = res.result.data[1];
+        // let zcothers = res.result.data[0].infos;
+        // let qkothers = res.result.data[1].infos;
+        // let us = res.result.data[2].us;
         //console.log(zcothers)
         that.setData({
           qkinfos,zcinfos,zcothers,qkothers,us
